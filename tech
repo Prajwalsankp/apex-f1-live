@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Russo+One&family=Titillium+Web:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top transition-all duration-500 bg-transparent" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-3 group" href="index.html">
+                <div class="position-relative">
+                    <i data-lucide="flag" class="text-primary w-8 h-8 transition-transform group-hover-scale-110"></i>
+                    <div
+                        class="position-absolute top-0 start-0 w-100 h-100 bg-primary opacity-0 blur-xl group-hover-opacity-100 transition-opacity">
+                    </div>
+                </div>
+                <span class="font-heading fs-4 tracking-wider">
+                    <span class="text-primary text-glow-red">APEX</span>
+                    <span class="text-foreground"> F1</span>
+                </span>
+            </a>
+
+            <button class="navbar-toggler border-0 text-foreground" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <i data-lucide="menu"></i>
+            </button>
+
+<ul class="navbar-nav ms-auto gap-1 align-items-center">
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="index.html">
+            Home
+        </a>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="drivers">
+            Drivers
+        </a>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="teams">
+            Teams
+        </a>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="circuits">
+            Circuits
+        </a>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="history">
+            History
+        </a>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="strategy">
+            Strategy
+        </a>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground active"
+            href="tech">
+            Tech Hub
+        </a>
+        
+        <span class="nav-indicator"></span>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="audio">
+            Audio Lab
+        </a>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="reflex">
+            Reflex
+        </a>
+        
+    </li>
+    
+</ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        
+<div class="container py-5 mt-5">
+    <div class="text-center mb-5 animate-fade-in">
+        <h1 class="font-heading display-3 text-white mb-2">
+            TECH <span class="text-info text-glow-blue">HUB</span>
+        </h1>
+        <p class="lead text-white-50 font-body mx-auto">
+            Technical Analysis & Comparison telemetry.
+        </p>
+    </div>
+
+    <div class="card bg-black border-secondary shadow-lg p-4">
+        
+        <div class="row mb-5 align-items-center">
+            <div class="col-md-5">
+                <select id="carA" class="form-select bg-dark text-white border-secondary font-heading" onchange="updateComparison()">
+                    <option value="2004">FERRARI F2004 (V10 Era)</option>
+                    <option value="2014">MERCEDES W05 (Early Hybrid)</option>
+                    <option value="2024" selected>RED BULL RB20 (Ground Effect)</option>
+                </select>
+            </div>
+            <div class="col-md-2 text-center">
+                <h3 class="font-heading text-danger">VS</h3>
+            </div>
+            <div class="col-md-5">
+                <select id="carB" class="form-select bg-dark text-white border-secondary font-heading" onchange="updateComparison()">
+                    <option value="2004" selected>FERRARI F2004 (V10 Era)</option>
+                    <option value="2014">MERCEDES W05 (Early Hybrid)</option>
+                    <option value="2024">RED BULL RB20 (Ground Effect)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row g-0 border border-secondary bg-dark bg-opacity-25 position-relative">
+            <div class="position-absolute w-100 h-100" style="background-image: linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px); background-size: 20px 20px; opacity: 0.2; z-index: 0;"></div>
+
+            <div class="col-6 border-end border-secondary p-4 position-relative z-index-10">
+                <h2 class="text-info font-heading mb-4 text-end" id="nameA">RED BULL RB20</h2>
+                <div id="statsA">
+                    </div>
+            </div>
+
+            <div class="col-6 p-4 position-relative z-index-10">
+                <h2 class="text-warning font-heading mb-4 text-start" id="nameB">FERRARI F2004</h2>
+                <div id="statsB">
+                    </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const carData = {
+        "2004": { name: "FERRARI F2004", hp: "900 HP", weight: "605 KG", engine: "3.0L V10", aero: "Complex Winglets" },
+        "2014": { name: "MERCEDES W05", hp: "850 HP", weight: "691 KG", engine: "1.6L V6 Hybrid", aero: "Low Drag" },
+        "2024": { name: "RED BULL RB20", hp: "1050 HP", weight: "798 KG", engine: "1.6L V6 Turbo", aero: "Ground Effect" }
+    };
+
+    function updateComparison() {
+        const idA = document.getElementById('carA').value;
+        const idB = document.getElementById('carB').value;
+        const dataA = carData[idA];
+        const dataB = carData[idB];
+
+        // Update Names
+        document.getElementById('nameA').innerText = dataA.name;
+        document.getElementById('nameB').innerText = dataB.name;
+
+        // Render Stats
+        document.getElementById('statsA').innerHTML = renderStats(dataA, 'end');
+        document.getElementById('statsB').innerHTML = renderStats(dataB, 'start');
+    }
+
+    function renderStats(data, align) {
+        return `
+            <div class="mb-4 text-${align}">
+                <small class="text-muted text-uppercase tracking-widest">Horsepower</small>
+                <div class="display-6 text-white font-heading">${data.hp}</div>
+            </div>
+            <div class="mb-4 text-${align}">
+                <small class="text-muted text-uppercase tracking-widest">Min Weight</small>
+                <div class="display-6 text-white font-heading">${data.weight}</div>
+            </div>
+            <div class="mb-4 text-${align}">
+                <small class="text-muted text-uppercase tracking-widest">Engine Config</small>
+                <div class="fs-4 text-white font-body">${data.engine}</div>
+            </div>
+            <div class="mb-4 text-${align}">
+                <small class="text-muted text-uppercase tracking-widest">Aero Concept</small>
+                <div class="fs-4 text-white font-body">${data.aero}</div>
+            </div>
+        `;
+    }
+
+    // Init
+    document.addEventListener("DOMContentLoaded", updateComparison);
+</script>
+
+    </main>
+
+    <footer class="text-center py-5 mt-5 border-top"
+        style="border-color: hsl(var(--border)); background: hsl(var(--card));">
+        <div class="container">
+            <p class="mb-0 text-muted-foreground font-body">&copy; 2025 Apex F1. The Pinnacle of Motorsport.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="static/js/main.js"></script>
+    <script src="static/js/data_loader.js"></script>
+    <script>
+        // Initialize Lucide Icons
+        if (window.lucide) {
+            lucide.createIcons();
+        }
+    </script>
+    
+</body>
+
+</html>

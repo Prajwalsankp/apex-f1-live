@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Russo+One&family=Titillium+Web:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top transition-all duration-500 bg-transparent" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-3 group" href="index.html">
+                <div class="position-relative">
+                    <i data-lucide="flag" class="text-primary w-8 h-8 transition-transform group-hover-scale-110"></i>
+                    <div
+                        class="position-absolute top-0 start-0 w-100 h-100 bg-primary opacity-0 blur-xl group-hover-opacity-100 transition-opacity">
+                    </div>
+                </div>
+                <span class="font-heading fs-4 tracking-wider">
+                    <span class="text-primary text-glow-red">APEX</span>
+                    <span class="text-foreground"> F1</span>
+                </span>
+            </a>
+
+            <button class="navbar-toggler border-0 text-foreground" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <i data-lucide="menu"></i>
+            </button>
+
+<ul class="navbar-nav ms-auto gap-1 align-items-center">
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="index.html">
+            Home
+        </a>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="drivers">
+            Drivers
+        </a>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="teams">
+            Teams
+        </a>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="circuits">
+            Circuits
+        </a>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="history">
+            History
+        </a>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground active"
+            href="strategy">
+            Strategy
+        </a>
+        
+        <span class="nav-indicator"></span>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="tech">
+            Tech Hub
+        </a>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="audio">
+            Audio Lab
+        </a>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="reflex">
+            Reflex
+        </a>
+        
+    </li>
+    
+</ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        
+<div class="container py-5 mt-5">
+    <div class="text-center mb-5 animate-fade-in">
+        <h1 class="font-heading display-3 text-white mb-2">
+            THE <span class="text-danger text-glow-red">PIT WALL</span>
+        </h1>
+        <p class="lead text-white-50 font-body mx-auto" style="max-width: 700px;">
+            One decision can win the race or lose the championship. Choose wisely, Team Principal.
+        </p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card bg-black border-secondary shadow-lg overflow-hidden position-relative" style="min-height: 500px;">
+                
+                <div class="position-absolute top-0 start-0 w-100 h-100" 
+                     style="background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px); background-size: 40px 40px; opacity: 0.5;">
+                </div>
+
+                <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative z-index-10 p-5 text-center">
+                    
+                    <div id="game-screen" class="w-100">
+                        <div class="badge bg-danger mb-4 font-heading tracking-widest animate-pulse">LIVE RACE UPDATE</div>
+                        
+                        <h2 class="text-white font-heading mb-4" id="scenario-title">SCENARIO LOADING...</h2>
+                        
+                        <div class="p-4 border border-secondary bg-dark bg-opacity-50 rounded mb-5">
+                            <p class="text-white font-body fs-5 mb-0" id="scenario-text">
+                                Accessing Race Control data feed...
+                            </p>
+                        </div>
+
+                        <div class="d-flex gap-3 justify-content-center" id="choices-area">
+                            <button onclick="startGame()" class="btn btn-outline-light px-5 py-3 font-heading tracking-widest hover-glitch">
+                                START SIMULATION
+                            </button>
+                        </div>
+                        
+                        <div class="progress mt-4 bg-dark border border-secondary" style="height: 6px; display: none;" id="timer-container">
+                            <div class="progress-bar bg-danger" id="timer-bar" role="progressbar" style="width: 100%"></div>
+                        </div>
+                    </div>
+
+                    <div id="result-screen" class="d-none animate-fade-in">
+                        <i data-lucide="trophy" class="text-warning w-16 h-16 mb-3 mx-auto" id="result-icon"></i>
+                        <h2 class="text-white font-heading mb-3" id="result-title">VICTORY</h2>
+                        <p class="text-white-50 font-body mb-4" id="result-desc">You made the right call.</p>
+                        <button onclick="nextScenario()" class="btn btn-primary px-5 py-2 font-heading">NEXT SCENARIO</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const scenarios = [
+        {
+            title: "LAP 52/58 - SAFETY CAR",
+            text: "You are leading the race on old Hard tires. P2 (Verstappen) pits for fresh Softs. If you box, you lose track position but get fresh tires. If you stay out, you keep the lead but have no grip.",
+            choiceA: "BOX BOX",
+            choiceB: "STAY OUT",
+            outcomeA: { type: 'lose', msg: "Pitstop Error! The wheel gun jammed. You finish P3." }, 
+            outcomeB: { type: 'win', msg: "Masterclass! You held position and defended the lead for the win!" }
+        },
+        {
+            title: "LAP 1 - TURN 1 CHAOS",
+            text: "Heavy rain at the start. You have minor front wing damage from a collision. It's drivable but costing 0.5s per lap. Do you repair it?",
+            choiceA: "REPAIR WING",
+            choiceB: "IGNORE DAMAGE",
+            outcomeA: { type: 'lose', msg: "Too slow! The repair took too long, you dropped to last place." },
+            outcomeB: { type: 'win', msg: "Survivor! The track dried up and others pitted. You finish P4." }
+        },
+        {
+            title: "QUALIFYING - Q3",
+            text: "2 minutes remaining. Track is evolving rapidly. Do you go out early to avoid traffic, or wait for the very last second for the best grip?",
+            choiceA: "GO EARLY",
+            choiceB: "WAIT LATE",
+            outcomeA: { type: 'lose', msg: "Track wasn't ready. You qualified P5." },
+            outcomeB: { type: 'win', msg: "Pole Position! The track grip was perfect at the buzzer." }
+        }
+    ];
+
+    let currentIdx = 0;
+    let timerInterval;
+
+    function startGame() {
+        currentIdx = 0;
+        loadScenario(currentIdx);
+    }
+
+    function loadScenario(index) {
+        if (index >= scenarios.length) {
+            // End of game
+            document.getElementById('scenario-title').innerText = "SESSION COMPLETE";
+            document.getElementById('scenario-text').innerText = "You have completed the strategy module.";
+            document.getElementById('choices-area').innerHTML = `<button onclick="startGame()" class="btn btn-outline-light px-5 py-3 font-heading">RESTART</button>`;
+            return;
+        }
+
+        const scen = scenarios[index];
+        const screen = document.getElementById('game-screen');
+        const result = document.getElementById('result-screen');
+        
+        screen.classList.remove('d-none');
+        result.classList.add('d-none');
+
+        document.getElementById('scenario-title').innerText = scen.title;
+        document.getElementById('scenario-text').innerText = scen.text;
+        
+        // Buttons
+        document.getElementById('choices-area').innerHTML = `
+            <button onclick="makeChoice('A')" class="btn btn-danger px-4 py-3 font-heading w-50 hover-glitch">${scen.choiceA}</button>
+            <button onclick="makeChoice('B')" class="btn btn-outline-light px-4 py-3 font-heading w-50 hover-glitch">${scen.choiceB}</button>
+        `;
+
+        // Reset Timer
+        /* You can add complex timer logic here later */
+    }
+
+    function makeChoice(choice) {
+        const scen = scenarios[currentIdx];
+        const outcome = choice === 'A' ? scen.outcomeA : scen.outcomeB;
+        
+        showResult(outcome);
+    }
+
+    function showResult(outcome) {
+        document.getElementById('game-screen').classList.add('d-none');
+        const resScreen = document.getElementById('result-screen');
+        resScreen.classList.remove('d-none');
+        
+        const title = document.getElementById('result-title');
+        const icon = document.getElementById('result-icon');
+        
+        if (outcome.type === 'win') {
+            title.innerText = "BRILLIANT CALL";
+            title.classList.remove('text-danger');
+            title.classList.add('text-success');
+            icon.setAttribute('data-lucide', 'trophy');
+            icon.classList.replace('text-danger', 'text-warning');
+        } else {
+            title.innerText = "DISASTER";
+            title.classList.remove('text-success');
+            title.classList.add('text-danger');
+            icon.setAttribute('data-lucide', 'alert-triangle');
+            icon.classList.replace('text-warning', 'text-danger');
+        }
+
+        document.getElementById('result-desc').innerText = outcome.msg;
+        
+        // Re-init icons for the new result screen
+        if(window.lucide) window.lucide.createIcons();
+    }
+
+    function nextScenario() {
+        currentIdx++;
+        loadScenario(currentIdx);
+    }
+
+    // Init Icons
+    document.addEventListener("DOMContentLoaded", () => {
+        if(window.lucide) window.lucide.createIcons();
+    });
+</script>
+
+    </main>
+
+    <footer class="text-center py-5 mt-5 border-top"
+        style="border-color: hsl(var(--border)); background: hsl(var(--card));">
+        <div class="container">
+            <p class="mb-0 text-muted-foreground font-body">&copy; 2025 Apex F1. The Pinnacle of Motorsport.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="static/js/main.js"></script>
+    <script src="static/js/data_loader.js"></script>
+    <script>
+        // Initialize Lucide Icons
+        if (window.lucide) {
+            lucide.createIcons();
+        }
+    </script>
+    
+</body>
+
+</html>

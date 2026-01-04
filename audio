@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Russo+One&family=Titillium+Web:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top transition-all duration-500 bg-transparent" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-3 group" href="index.html">
+                <div class="position-relative">
+                    <i data-lucide="flag" class="text-primary w-8 h-8 transition-transform group-hover-scale-110"></i>
+                    <div
+                        class="position-absolute top-0 start-0 w-100 h-100 bg-primary opacity-0 blur-xl group-hover-opacity-100 transition-opacity">
+                    </div>
+                </div>
+                <span class="font-heading fs-4 tracking-wider">
+                    <span class="text-primary text-glow-red">APEX</span>
+                    <span class="text-foreground"> F1</span>
+                </span>
+            </a>
+
+            <button class="navbar-toggler border-0 text-foreground" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <i data-lucide="menu"></i>
+            </button>
+
+<ul class="navbar-nav ms-auto gap-1 align-items-center">
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="index.html">
+            Home
+        </a>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="drivers">
+            Drivers
+        </a>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="teams">
+            Teams
+        </a>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="circuits">
+            Circuits
+        </a>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="history">
+            History
+        </a>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="strategy">
+            Strategy
+        </a>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="tech">
+            Tech Hub
+        </a>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground active"
+            href="audio">
+            Audio Lab
+        </a>
+        
+        <span class="nav-indicator"></span>
+        
+    </li>
+    
+    <li class="nav-item position-relative">
+        <a class="nav-link px-3 py-2 font-body text-sm uppercase tracking-widest text-muted-foreground hover-text-foreground "
+            href="reflex">
+            Reflex
+        </a>
+        
+    </li>
+    
+</ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        
+<div class="container py-5 mt-5">
+    <div class="text-center mb-5 animate-fade-in">
+        <h1 class="font-heading display-3 text-white mb-2">
+            AUDIO <span class="text-warning text-glow-gold">LAB</span>
+        </h1>
+        <p class="lead text-white-50 font-body mx-auto">
+            The raw sound of horsepower and adrenaline.
+        </p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+            <div class="p-3 border border-secondary bg-black rounded h-100">
+                <h4 class="text-white font-heading border-bottom border-secondary pb-2 mb-3">
+                    <i data-lucide="cpu" class="me-2"></i> POWER UNITS
+                </h4>
+                <div class="d-grid gap-3">
+                    <button onclick="playSound('v10')" class="btn btn-outline-danger py-4 font-heading hover-glitch sound-btn">
+                        V10 SCREAM (2004)
+                    </button>
+                    <button onclick="playSound('v8')" class="btn btn-outline-warning py-4 font-heading hover-glitch sound-btn">
+                        V8 BLOWN DIFFUSER
+                    </button>
+                    <button onclick="playSound('v6')" class="btn btn-outline-info py-4 font-heading hover-glitch sound-btn">
+                        V6 TURBO HYBRID
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="p-3 border border-secondary bg-black rounded h-100">
+                <h4 class="text-white font-heading border-bottom border-secondary pb-2 mb-3">
+                    <i data-lucide="mic" class="me-2"></i> TEAM RADIO
+                </h4>
+                <div class="d-grid gap-3">
+                    <button onclick="playSound('no-mikey')" class="btn btn-outline-light py-4 font-heading hover-glitch sound-btn">
+                        "NO MIKEY NO!"
+                    </button>
+                    <button onclick="playSound('smooth')" class="btn btn-outline-light py-4 font-heading hover-glitch sound-btn">
+                        "SMOOTH OPERATOR"
+                    </button>
+                    <button onclick="playSound('gloves')" class="btn btn-outline-light py-4 font-heading hover-glitch sound-btn">
+                        "GLOVES AND STEERING WHEEL"
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="p-3 border border-secondary bg-black rounded h-100">
+                <h4 class="text-white font-heading border-bottom border-secondary pb-2 mb-3">
+                    <i data-lucide="zap" class="me-2"></i> TRACK FX
+                </h4>
+                <div class="d-grid gap-3">
+                    <button onclick="playSound('wheelgun')" class="btn btn-outline-success py-4 font-heading hover-glitch sound-btn">
+                        PIT STOP GUN
+                    </button>
+                    <button onclick="playSound('lockup')" class="btn btn-outline-secondary py-4 font-heading hover-glitch sound-btn">
+                        TIRE LOCK UP
+                    </button>
+                    <button onclick="playSound('start')" class="btn btn-outline-danger py-4 font-heading hover-glitch sound-btn">
+                        LIGHTS OUT BEEP
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="d-flex justify-content-center gap-1 mt-5" id="visualizer" style="height: 50px; opacity: 0;">
+        <div class="bar bg-danger" style="width: 10px; height: 100%;"></div>
+        <div class="bar bg-warning" style="width: 10px; height: 60%;"></div>
+        <div class="bar bg-info" style="width: 10px; height: 80%;"></div>
+        <div class="bar bg-danger" style="width: 10px; height: 40%;"></div>
+        <div class="bar bg-white" style="width: 10px; height: 90%;"></div>
+        <div class="bar bg-warning" style="width: 10px; height: 50%;"></div>
+    </div>
+</div>
+
+<script>
+    function playSound(name) {
+        // NOTE: You need to add .mp3 files to static/audio/ folder!
+        // Example: static/audio/v10.mp3
+        const path = `/static/audio/${name}.mp3`;
+        const audio = new Audio(path);
+        
+        audio.play().catch(e => {
+            alert("Audio file not found! Please add " + name + ".mp3 to static/audio/");
+        });
+
+        // Simple Visualizer Animation
+        const vis = document.getElementById('visualizer');
+        vis.style.opacity = '1';
+        vis.classList.add('animate-pulse');
+        
+        audio.onended = () => {
+            vis.style.opacity = '0';
+            vis.classList.remove('animate-pulse');
+        };
+    }
+    
+    document.addEventListener("DOMContentLoaded", () => {
+        if(window.lucide) window.lucide.createIcons();
+    });
+</script>
+
+    </main>
+
+    <footer class="text-center py-5 mt-5 border-top"
+        style="border-color: hsl(var(--border)); background: hsl(var(--card));">
+        <div class="container">
+            <p class="mb-0 text-muted-foreground font-body">&copy; 2025 Apex F1. The Pinnacle of Motorsport.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="static/js/main.js"></script>
+    <script src="static/js/data_loader.js"></script>
+    <script>
+        // Initialize Lucide Icons
+        if (window.lucide) {
+            lucide.createIcons();
+        }
+    </script>
+    
+</body>
+
+</html>

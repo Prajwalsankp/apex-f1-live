@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Initializing APEX F1...</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Force black background everywhere */
+        html, body { 
+            background-color: #000 !important; 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            overflow: hidden; 
+            margin: 0; 
+        }
+        
+        .lights-gantry { background: #111; padding: 20px 40px; border-radius: 10px; border: 2px solid #333; display: flex; gap: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
+        .light-unit { width: 60px; height: 60px; background: #000; border-radius: 50%; border: 2px solid #222; position: relative; }
+        .light { width: 100%; height: 100%; border-radius: 50%; background: #300000; transition: background 0.1s; }
+        .light.on { background: #ff0000; box-shadow: 0 0 50px #ff0000, inset 0 0 10px white; }
+        .loader-text { color: #fff; font-family: monospace; letter-spacing: 2px; margin-top: 30px; opacity: 0.7; font-weight: bold; }
+        
+        /* The Fade Out Animation */
+        .fade-out { 
+            opacity: 0; 
+            transition: opacity 1.2s ease-in-out; /* Slower, smoother fade */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container" class="text-center">
+        <div class="lights-gantry">
+            <div class="light-unit"><div class="light" id="light-1"></div></div>
+            <div class="light-unit"><div class="light" id="light-2"></div></div>
+            <div class="light-unit"><div class="light" id="light-3"></div></div>
+            <div class="light-unit"><div class="light" id="light-4"></div></div>
+            <div class="light-unit"><div class="light" id="light-5"></div></div>
+        </div>
+        <div class="loader-text" id="status">INITIALIZING SYSTEMS...</div>
+    </div>
+
+    <script>
+        if (sessionStorage.getItem('apex_visited')) {
+            window.location.href = "home";
+        } else {
+            const lights = [1, 2, 3, 4, 5];
+            let current = 0;
+
+            setTimeout(() => {
+                const interval = setInterval(() => {
+                    if (current < 5) {
+                        document.getElementById(`light-${current + 1}`).classList.add('on');
+                        current++;
+                    } else {
+                        clearInterval(interval);
+                        const reaction = Math.random() * 1000 + 500;
+                        setTimeout(() => {
+                            // LIGHTS OUT
+                            lights.forEach(i => document.getElementById(`light-${i}`).classList.remove('on'));
+                            document.getElementById('status').innerText = "LIGHTS OUT AND AWAY WE GO!";
+                            document.getElementById('status').style.color = "#00ff00";
+
+                            sessionStorage.setItem('apex_visited', 'true');
+
+                            // SMOOTH TRANSITION SEQUENCE
+                            setTimeout(() => {
+                                // 1. Fade content to black
+                                document.body.classList.add('fade-out');
+                                
+                                // 2. Wait for fade to finish, then redirect
+                                setTimeout(() => {
+                                    window.location.href = "home";
+                                }, 1200); // Matches the CSS transition time
+                            }, 500);
+                        }, reaction);
+                    }
+                }, 1000);
+            }, 500);
+        }
+    </script>
+</body>
+</html>
